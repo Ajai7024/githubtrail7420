@@ -1,4 +1,4 @@
-Git and GitHub :
+Git And GitHub :
 ----------------
 
 1) git clone "origin path"      // origin path means git HTTPS clone code. (This comment used for import the git file)
