@@ -1,0 +1,8 @@
+Git and GitHub :
+----------------
+
+1) git clone "origin path"      // origin path means git HTTPS clone code. (This comment used for import the git file)
+2) cd "repository name"         // git repository name   (This comment used for move to the main directory)
+3) git add "file name"          // ex: test1.txt       (This comment used for add a new file to working copy git path )
+4) git commit -m "comments"     // must give the comments    (This comment move to the local  git path)
+5) git push origin main         // this comments move to the github live project
