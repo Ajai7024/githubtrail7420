@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yearly Calendar with Navigation</title>
+    <link rel="stylesheet" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css">
+    <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .calendar-container { max-width: 800px; margin: auto; }
+        .controls { margin-bottom: 10px; }
+        #calendar { height: 600px; }
+    </style>
+</head>
+<body>
+
+<h2>Yearly Calendar View (Navigable)</h2>
+
+<div class="controls">
+    <button onclick="prevMonth()">Previous</button>
+    <select id="month-select" onchange="changeMonth()">
+        <option value="0">January</option>
+        <option value="1">February</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">September</option>
+        <option value="9">October</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+    </select>
+    <button onclick="nextMonth()">Next</button>
+</div>
+
+<div class="calendar-container">
+    <div id="calendar"></div>
+</div>
+
+<script>
+    let calendar = new tui.Calendar(document.getElementById('calendar'), {
+        defaultView: 'month',
+        useCreationPopup: true,
+        useDetailPopup: true
+    });
+
+    function changeMonth() {
+        let month = document.getElementById('month-select').value;
+        let year = new Date().getFullYear();
+        calendar.setDate(new Date(year, month, 1));
+    }
+
+    function prevMonth() {
+        let currentDate = calendar.getDate();
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        calendar.setDate(currentDate);
+        document.getElementById('month-select').value = currentDate.getMonth();
+    }
+
+    function nextMonth() {
+        let currentDate = calendar.getDate();
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        calendar.setDate(currentDate);
+        document.getElementById('month-select').value = currentDate.getMonth();
+    }
+</script>
+
+</body>
+</html>
